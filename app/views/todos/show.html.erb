@@ -1,5 +1,14 @@
-<h1>à acheter</h1>
-<p>Item : <%= @todo['title']%></p>
-<p>Description: <%= @todo['description']%></p>
 
-<%= link_to "Back To Todo List",todos_path%>
+<h1 class="d-flex justify-content-center">À acheter</h1>
+
+<div class="mx-auto" style="width: 40%;">
+    <%= form_for @todo do |f| %>
+      <div class="mb-3">
+          <p class="form-control">Article : <%= @todo['title']%></p>
+      </div>
+      <div class="mb-3">
+            <p class="form-control">Description : <%= @todo['description']%></p>
+      </div>
+        <%= link_to "Retour à ma liste",todos_path, class:"btn btn-outline-warning"%>
+    <% end %>
+</div>

@@ -1,18 +1,25 @@
-<h1>Liste des courses</h1>
+    <h1 class="d-flex justify-content-center">Liste des courses</h1>
 
-<%= link_to "Ajouter un item à acheter", new_todo_path %>
+    <div class="card mx-auto" style="width: 40%;">
+        <div class="d-grid gap-2">
+            <%= link_to "Ajouter un article à acheter", new_todo_path, class: "btn btn-outline-secondary"%>
+        </div>
+    </div>
 
-
-<div class="card mx-auto" style="width: 40%;">
-    <ul class="list-group list-group-flush">
-        <% @todos.each do |todo| %>
-            <li class="list-group-item d-flex justify-content-between">
-                <%= link_to todo.title, todo_path(todo.id), class: "btn btn-dark"%>
-                <div class="">
-                    <%= link_to "éditer", edit_todo_path(todo[:id]), class:"btn btn-warning"%>
-                    <%= link_to "Fait", todo, method: :delete, data: { confirm: "Êtes vous sur ? Cette opération est permanante" }, class: "btn btn-success"%>
-                </div>
-            </li>
-        <% end %>
-    </ul>
-</div>
+    <div class="card mx-auto" style="width: 40%;">
+        <ul class="list-group list-group-flush">
+            <% @todos.each do |todo| %>
+                <li class="list-group-item d-flex justify-content-between">
+                    <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" value="" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">
+                            <%= link_to todo.title, todo_path(todo.id), class: "btn btn-outline-dark"%>
+                    </div>
+                    <div class="">
+                        <%= link_to "éditer", edit_todo_path(todo[:id]), class:"btn btn-warning"%>
+                        <%= link_to "Fait", todo, method: :delete, data: { confirm: "Êtes vous sur ? Cette opération est permanante" }, class: "btn btn-success"%>
+                    </div>
+                </li>
+            <% end %>
+        </ul>
+    </div>
