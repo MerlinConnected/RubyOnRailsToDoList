@@ -2,10 +2,17 @@
 
 <%= link_to "Ajouter un item à acheter", new_todo_path %>
 
-<% @todos.each do |todo| %>
-    <li> 
-    <%= link_to todo.title, todo_path(todo.id) %>
-    <%= link_to "edit", edit_todo_path(todo[:id]) %>
-    <%= link_to "delete", todo, method: :delete, data: { confirm: "You sure?" }%>
-    </li>
-<% end %>
+
+<div class="card mx-auto" style="width: 40%;">
+    <ul class="list-group list-group-flush">
+        <% @todos.each do |todo| %>
+            <li class="list-group-item d-flex justify-content-between">
+                <%= link_to todo.title, todo_path(todo.id), class: "btn btn-dark"%>
+                <div class="">
+                    <%= link_to "éditer", edit_todo_path(todo[:id]), class:"btn btn-warning"%>
+                    <%= link_to "Fait", todo, method: :delete, data: { confirm: "Êtes vous sur ? Cette opération est permanante" }, class: "btn btn-success"%>
+                </div>
+            </li>
+        <% end %>
+    </ul>
+</div>
