@@ -17,7 +17,7 @@
                     </div>
                     <div class="">
                         <%= link_to "éditer", edit_todo_path(todo[:id]), class:"btn btn-warning"%>
-                        <%= link_to "Fait", todo, method: :delete, data: { confirm: "Êtes vous sur ? Cette opération est permanante" }, class: "btn btn-success"%>
+                        <%= link_to "Supprimer", todo, method: :delete, data: { confirm: "Cette opération est irreversible" }, class: "btn btn-danger"%>
                     </div>
                 </li>
             <% end %>
